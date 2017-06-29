@@ -1,0 +1,7 @@
+.DS_Store
+Capfile
+config/deploy.rb
+tmp/
+log/*.log
+.env*
+.rvmrc
