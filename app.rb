@@ -87,7 +87,7 @@ get '/:action/:ip_or_host' do
     # process actions
     if action == 'block'
       # block ip
-      if r == nil
+      if r.blank?
         puts "block ip: #{ip}" if DEBUG
         # create A and TXT records
         Record.create(
@@ -106,16 +106,18 @@ get '/:action/:ip_or_host' do
           ttl:         0,
           change_date: Time.now.to_i
         )
+      else
+        puts "ip already blocked: #{ip}" if DEBUG
       end
     else
       # release ip
       puts "release ip: #{ip}" if DEBUG
-      if r != nil
+      if r.any?
         # delete A and TXT records
         r.each { |record| record.destroy }
       else
         # error: no record to delete
-        puts "no records to delete: #{r.inspect}" if DEBUG
+        puts "no records to delete for ip: #{ip}" if DEBUG
         halt 404
       end
     end
