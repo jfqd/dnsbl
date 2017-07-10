@@ -108,6 +108,7 @@ get '/:action/:ip_or_host' do
         )
       else
         puts "ip already blocked: #{ip}" if DEBUG
+        halt 204 # No Content
       end
     else
       # release ip
