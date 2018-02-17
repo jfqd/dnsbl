@@ -11,7 +11,7 @@ DOMAIN_REGEX = /(^$)|(^[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\
 IPV4_REGEX   = /^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$/
 DEBUG        = false
 
-YAML::load(File.open('config/database.yml'))['production'].symbolize_keys.each do |key, value|
+YAML::load(File.open('config/database.yml'))['production'].each do |key, value|
   renderer = ERB.new(value)
   set key, renderer.result()
 end
