@@ -34,4 +34,4 @@ We use Phusion Passenger, but you can use thin, puma, unicorn or any other rack 
 
 ```rackup```
 
-Copyright (c) 2017 Stefan Husch, qutic development.
+Copyright (c) 2019 Stefan Husch, qutic development.
