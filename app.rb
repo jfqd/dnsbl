@@ -95,16 +95,14 @@ get '/:action/:ip_or_host' do
           name:        ptr_fqdn,
           type:        "A",
           content:     "127.0.0.2",
-          ttl:         0,
-          change_date: Time.now.to_i
+          ttl:         0
         )
         Record.create(
           domain_id:   d.id,
           name:        ptr_fqdn,
           type:        "TXT",
           content:     "#{ENV['TXT_INFO']}#{ip}",
-          ttl:         0,
-          change_date: Time.now.to_i
+          ttl:         0
         )
       else
         puts "ip already blocked: #{ip}" if DEBUG
