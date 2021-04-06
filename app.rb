@@ -128,6 +128,14 @@ get '/:action/:ip_or_host' do
   end
 end
 
+get "/robots.txt" do
+  %{User-agent: *\nDisallow: /}
+end
+
+get '/ping' do
+  'pong'
+end
+
 get "/*" do
   halt 403
 end
