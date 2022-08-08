@@ -71,7 +71,7 @@ get '/:action/:ip_or_host' do
     # skip if ip not valid
     if ip == nil
       puts "ip not found: #{ip}" if DEBUG
-      halt 403
+      halt 404
     end
     # get domain record
     d = Domain.find_by(name: ENV['DOMAIN'])
