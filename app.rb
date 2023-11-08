@@ -47,7 +47,7 @@ end
 # action should be block or release
 get '/:action/:ip_or_host' do
   begin
-    ActiveRecord::Base.clear_active_connections!
+    ActiveRecord::Base.connection_handler.clear_active_connections!
     # get params
     ip_or_host = params[:ip_or_host]
     action = params[:action]
