@@ -36,7 +36,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     mysql2 (0.5.7)
       bigdecimal
-    prism (1.7.0)
+    prism (1.8.0)
     rack (3.2.4)
     rack-protection (4.2.1)
       base64 (>= 0.1.0)
